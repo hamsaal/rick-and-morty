@@ -1,24 +1,39 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import CharacterList from "../components/CharactersList";
 
 function Home() {
   const [characters, setCharacters] = useState(null);
+  const [isPending, setPending] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`https://rickandmortyapi.com/api/character`)
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        console.log(data);
-        setCharacters(data.results);
-      });
+    setTimeout(() => {
+      fetch(`https://rickandmortyapi.com/api/character`)
+        .then((res) => {
+          if (res.ok) return res.json();
+          else {
+            throw Error(`could not fetch the data from the resource provided`);
+          }
+        })
+        .then((data) => {
+          setPending(false);
+          setCharacters(data.results);
+          setError(null);
+        })
+        .catch((err) => {
+          setPending(false);
+          setError(err.message);
+        });
+    }, 1000);
   }, []);
 
   return (
     <div>
       <Header />
+      {error && <div>{error}</div>}
+      {isPending && <div> Loading ... </div>}
       <table>
         <thead>
           <tr>
@@ -28,19 +43,7 @@ function Home() {
             <th>Status</th>
           </tr>
         </thead>
-        <tbody>
-          {characters &&
-            characters.map((character) => (
-              <tr key={character.id}>
-                <td>
-                  <img src={character.image} alt={character.name} />
-                </td>
-                <td>{character.name}</td>
-                <td>{character.species}</td>
-                <td>{character.status}</td>
-              </tr>
-            ))}
-        </tbody>
+        <tbody>{characters && <CharacterList characters={characters} />}</tbody>
       </table>
       <Footer />
     </div>
