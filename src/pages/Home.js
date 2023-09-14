@@ -12,7 +12,7 @@ function Home() {
       })
       .then((data) => {
         console.log(data);
-        setCharacters(data);
+        setCharacters(data.results);
       });
   }, []);
 
@@ -29,15 +29,17 @@ function Home() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              <td>
+          {characters &&
+            characters.map((character) => (
+              <tr key={character.id}>
                 <td>
-                  <td></td>
+                  <img src={character.image} alt={character.name} />
                 </td>
-              </td>
-            </td>
-          </tr>
+                <td>{character.name}</td>
+                <td>{character.species}</td>
+                <td>{character.status}</td>
+              </tr>
+            ))}
         </tbody>
       </table>
       <Footer />
