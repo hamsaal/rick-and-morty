@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import CharacterList from "../components/CharactersList";
+import Content from "../components/Content";
 
 function Home() {
   const [characters, setCharacters] = useState(null);
@@ -34,17 +34,7 @@ function Home() {
       <Header />
       {error && <div>{error}</div>}
       {isPending && <div> Loading ... </div>}
-      <table>
-        <thead>
-          <tr>
-            <th>Avatar</th>
-            <th>Name</th>
-            <th>Specie</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>{characters && <CharacterList characters={characters} />}</tbody>
-      </table>
+      <Content content={characters} />
       <Footer />
     </div>
   );
