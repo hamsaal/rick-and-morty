@@ -12,9 +12,9 @@ function Home() {
       })
       .then((data) => {
         console.log(data);
-        setCharsacters(data);
+        setCharacters(data);
       });
-  });
+  }, []);
 
   return (
     <div>
