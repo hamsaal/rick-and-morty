@@ -1,7 +1,15 @@
-import React from "react";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import CharacterDetails from "../components/CharacterDetails";
 
 function Profile() {
-  return <h1>Profile</h1>;
+  return (
+    <div>
+      <Header />
+      <CharacterDetails />
+      <Footer />
+    </div>
+  );
 }
 
 export default Profile;
