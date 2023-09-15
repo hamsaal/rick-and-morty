@@ -4,11 +4,11 @@ import Content from "../components/Content";
 import useFetch from "../components/useFetch";
 
 function Home() {
-  const {
-    data: characters,
-    isPending,
-    error,
-  } = useFetch(`https://rickandmortyapi.com/api/character`);
+  const { data, isPending, error } = useFetch(
+    `https://rickandmortyapi.com/api/character`
+  );
+  const characters = data ? data.results : null;
+
   return (
     <div>
       <Header />
