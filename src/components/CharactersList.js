@@ -6,10 +6,11 @@ const CharacterList = ({ characters }) => {
       <td>
         <img src={character.image} alt={character.name} />
       </td>
-
-      <Link className="character-link" to={`/profile/${character.id}`}>
-        <td>{character.name}</td>
-      </Link>
+      <td>
+        <Link className="character-link" to={`/profile/${character.id}`}>
+          {character.name}
+        </Link>
+      </td>
       <td>{character.species}</td>
       <td>{character.status}</td>
     </tr>
