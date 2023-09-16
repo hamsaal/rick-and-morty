@@ -12,7 +12,7 @@ function Home() {
 
   const requiredCharacters = characters
     ? characters.filter((character) => {
-        character.name.toLowerCase().includes(inputSearch.toLowerCase());
+        return character.name.toLowerCase().includes(inputSearch.toLowerCase());
       })
     : null;
 
@@ -29,7 +29,7 @@ function Home() {
           setInputSearch(event.target.value);
         }}
       />
-      <Content content={characters} />
+      <Content content={requiredCharacters} />
       <Footer />
     </div>
   );
