@@ -17,8 +17,9 @@ function Table({
           <th>{tableHeading4}</th>
         </tr>
       </thead>
-      {tableContent && <CharacterList characters={tableContent} />}
-      <tbody></tbody>
+      <tbody>
+        {tableContent && <CharacterList characters={tableContent} />}
+      </tbody>
     </table>
   );
 }
