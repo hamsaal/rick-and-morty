@@ -10,6 +10,12 @@ function Home() {
   const [inputSearch, setInputSearch] = useState(" ");
   const characters = data ? data.results : null;
 
+  const requiredCharacters = characters
+    ? characters.filter((character) => {
+        character.name.toLowerCase().includes(inputSearch.toLowerCase());
+      })
+    : null;
+
   return (
     <div>
       <Header />
