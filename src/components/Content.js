@@ -1,7 +1,7 @@
 import Table from "./Table";
 function Content({ content }) {
   return (
-    <>
+    <div className="table-container">
       <Table
         tableHeading1="Avatar"
         tableHeading2="Name"
@@ -9,7 +9,7 @@ function Content({ content }) {
         tableHeading4="Status"
         tableContent={content}
       />
-    </>
+    </div>
   );
 }
 
