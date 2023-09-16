@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import Content from "../components/Content";
 import useFetch from "../components/useFetch";
 import { useState } from "react";
+import SearchBar from "../components/SearchBar";
 function Home() {
   const { data, isPending, error } = useFetch(
     `https://rickandmortyapi.com/api/character`
@@ -21,14 +22,12 @@ function Home() {
       <Header />
       {error && <div>{error}</div>}
       {isPending && <div> Loading ... </div>}
-      <input
-        type="text"
-        placeholder="Search for your character here"
+      <SearchBar
         value={inputSearch}
         onChange={(event) => {
           setInputSearch(event.target.value);
         }}
-      />
+      ></SearchBar>
       <Content content={requiredCharacters} />
       <Footer />
     </div>
