@@ -1,3 +1,4 @@
+// Importing Character List to display the list of characters
 import CharacterList from "./CharactersList";
 
 function Table({
@@ -18,6 +19,7 @@ function Table({
         </tr>
       </thead>
       <tbody>
+        {/* // Render table body which also includes the CharacterList component  */}
         {tableContent && <CharacterList characters={tableContent} />}
       </tbody>
     </table>

@@ -6,7 +6,10 @@ import Error from "./Error";
 import Loading from "./Loading";
 
 const CharacterDetails = () => {
+  // grab the character id so that request can be made to api end point for the character's profile
   const { id } = useParams();
+  /* using custom hook to fetch character data as well as manage the errors and manage if the data is being fetched
+   or still being fetched */
   const {
     data: character,
     isPending,
@@ -41,6 +44,7 @@ const CharacterDetails = () => {
             {character.gender}
           </p>
           <div className="button-container">
+            {/* Back button to go back to home page  */}
             <Link to="/" className="back-button">
               <BackButton className="back-button-icon" />
               <span className="back-button-text">Go Back</span>
