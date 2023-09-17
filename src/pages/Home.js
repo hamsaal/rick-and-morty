@@ -9,14 +9,8 @@ import Loading from "../components/Loading";
 import Error from "../components/Error";
 
 function Home() {
-  const { data, isPending, error } = useFetch(
-    `https://rickandmortyapi.com/api/character`
-  );
-  const [inputSearch, setInputSearch] = useState("");
-  const characters = data ? data.results : null;
-
   const [pageNumbers, setPageNumbers] = useState([1, 2, 3, 4, 5, 6, 7]);
-
+  const [currentPage, setCurrentPage] = useState("1");
   const UpdateNextButtons = () => {
     setPageNumbers((currentPageNumbers) =>
       currentPageNumbers.map((page) => page + 5)
@@ -27,6 +21,13 @@ function Home() {
       currentPageNumbers.map((page) => page - 5)
     );
   };
+
+  const { data, isPending, error } = useFetch(
+    `https://rickandmortyapi.com/api/character/?page=${currentPage}`
+  );
+  const [inputSearch, setInputSearch] = useState("");
+  const characters = data ? data.results : null;
+
   const requiredCharacters = characters
     ? characters.filter((character) => {
         return character.name.toLowerCase().includes(inputSearch.toLowerCase());
@@ -44,23 +45,28 @@ function Home() {
       ></SearchBar>
       {isPending && <Loading />}
       {error && <Error message={error} />}
+      <div className="home-buttons-container">
+        <PageButtons
+          label={`<<<<`}
+          disabled={pageNumbers[0] === 1}
+          onClick={UpdatePreviousButtons}
+        ></PageButtons>
+
+        {pageNumbers.map((pageNumber) => (
+          <PageButtons
+            key={pageNumber}
+            label={pageNumber}
+            onClick={() => setCurrentPage(pageNumber)}
+          ></PageButtons>
+        ))}
+
+        <PageButtons
+          label={`>>>>`}
+          disabled={pageNumbers[6] === 42}
+          onClick={UpdateNextButtons}
+        ></PageButtons>
+      </div>
       <CharactersTable content={requiredCharacters} />
-
-      <PageButtons
-        label={`<<<<`}
-        disabled={pageNumbers[0] === 1}
-        onClick={UpdatePreviousButtons}
-      ></PageButtons>
-
-      {pageNumbers.map((pageNumber) => (
-        <PageButtons label={pageNumber}></PageButtons>
-      ))}
-
-      <PageButtons
-        label={`>>>>`}
-        disabled={pageNumbers[6] === 42}
-        onClick={UpdateNextButtons}
-      ></PageButtons>
 
       <Footer />
     </div>
