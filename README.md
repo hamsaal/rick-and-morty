@@ -38,7 +38,7 @@ developement environment and run
 Using your terminal,clone the repository to your local directory
 
 ```sh
-git clone https://github.com/hamsaal/rick_and_morty
+git clone https://github.com/hamsaal/rick-and-morty
 ```
 
 ### Navigate to the Project Directory
