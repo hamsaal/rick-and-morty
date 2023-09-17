@@ -58,9 +58,6 @@ th {
   font-weight: bold;
 }
 
-th:last-child, td:last-child {
-  border-right: none;
-}
 
 td, .character-link {
   color: black;
