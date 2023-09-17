@@ -3,7 +3,7 @@ import React from "react";
 function Header() {
   return (
     <header>
-      <h1>Rick & Monty</h1>
+      <h1>Rick & Morty</h1>
     </header>
   );
 }
