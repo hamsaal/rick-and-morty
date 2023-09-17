@@ -8,7 +8,7 @@ function Home() {
   const { data, isPending, error } = useFetch(
     `https://rickandmortyapi.com/api/character`
   );
-  const [inputSearch, setInputSearch] = useState(" ");
+  const [inputSearch, setInputSearch] = useState("");
   const characters = data ? data.results : null;
 
   const requiredCharacters = characters
@@ -20,14 +20,24 @@ function Home() {
   return (
     <div>
       <Header />
-      {error && <div>{error}</div>}
-      {isPending && <div> Loading ... </div>}
       <SearchBar
         value={inputSearch}
         onChange={(event) => {
           setInputSearch(event.target.value);
         }}
       ></SearchBar>
+      {isPending && (
+        <div style={{ color: "black", fontSize: "20px", textAlign: "center" }}>
+          {" "}
+          Loading ...{" "}
+        </div>
+      )}
+      {error && (
+        <div style={{ color: "red", fontSize: "20px", textAlign: "center" }}>
+          {error}
+        </div>
+      )}
+
       <Content content={requiredCharacters} />
       <Footer />
     </div>

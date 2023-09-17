@@ -1,11 +1,11 @@
 const SearchBar = ({ value, onChange }) => {
   return (
     <div className="searchbar-container">
-      <p>Search </p>
+      <p>Search: </p>
       <input
         className="search-input"
         type="text"
-        placeholder="Search for your character here"
+        placeholder="Search your character...."
         value={value}
         onChange={onChange}
       />
