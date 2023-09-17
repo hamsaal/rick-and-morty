@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 const useFetch = (url) => {
+  // state variables to hold fetched data, indicate loading status, and hold errors during fetch request
   const [data, setData] = useState(null);
   const [isPending, setPending] = useState(true);
   const [error, setError] = useState(null);
@@ -24,6 +25,7 @@ const useFetch = (url) => {
         setError(err.message);
       });
   }, [url]);
+  //  url is added as dependency so that useEffect does not execute upon each re render
   return { data, isPending, error };
 };
 

@@ -31,7 +31,11 @@ function Home() {
   const { data, isPending, error } = useFetch(
     `https://rickandmortyapi.com/api/character/?page=${currentPage}`
   );
+
+  // State variable to store the user's search input
   const [inputSearch, setInputSearch] = useState("");
+
+  // Extracting characters data from the fetched data
   const characters = data ? data.results : null;
 
   // Function to filter characters based on the search input
@@ -50,6 +54,8 @@ function Home() {
           setInputSearch(event.target.value);
         }}
       ></SearchBar>
+
+      {/* Loading and error component displayed if needed*/}
 
       {isPending && <Loading />}
 
