@@ -1,6 +1,6 @@
 # Project Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). The project
+This project was initialized with [Create React App](https://github.com/facebook/create-react-app). The project
 shows the details of the characters of Rick and Morty Season using the [Rick and morty API endpoint](https://rickandmortyapi.com)
 
 ## Features
