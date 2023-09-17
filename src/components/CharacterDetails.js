@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import useFetch from "./useFetch";
 import { Link } from "react-router-dom";
 import { ReactComponent as BackButton } from "../assets/arrow-left-solid.svg";
+import Error from "./Error";
+import Loading from "./Loading";
 
 const CharacterDetails = () => {
   const { id } = useParams();
@@ -13,16 +15,8 @@ const CharacterDetails = () => {
   return (
     <div>
       <h2 className="character-details ">Character Profile</h2>
-      {isPending && (
-        <div style={{ color: "black", fontSize: "20px", textAlign: "center" }}>
-          Loading ...
-        </div>
-      )}
-      {error && (
-        <div style={{ color: "red", fontSize: "20px", textAlign: "center" }}>
-          {error}
-        </div>
-      )}
+      {isPending && <Loading />}
+      {error && <Error message={error} />}
       {character && (
         <div className="character-details-box">
           <img
