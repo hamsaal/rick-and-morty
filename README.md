@@ -1,13 +1,11 @@
 # Project Overview
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). The project
-shows the character of Rick and Morty Season using the [Rick and morty API endpoint](https://rickandmortyapi.com)
+shows the details of the characters of Rick and Morty Season using the [Rick and morty API endpoint](https://rickandmortyapi.com)
 
-## 🌟 Features
+## Features
 
 This React single-page application (SPA) showcases the characters from the Rick and Morty series with the following features:
-
-### Core Features
 
 1. **Home and Profile Pages**: The SPA consists of two main pages: Home and Profile.
 2. **Character Table**: On the Home page, a table displays a list of characters retrieved from the [Rick & Morty API’s Character endpoint](https://rickandmortyapi.com/). The table includes the following columns:
@@ -21,17 +19,9 @@ This React single-page application (SPA) showcases the characters from the Rick 
 
 4. **Back Button**: The Profile page features a Back button, allowing users to easily navigate back to the Home page and the main table of characters.
 
-### Bonus Features
+5. **Pagination**: The main table on the Home page supports pagination, enhancing usability by allowing users to navigate through different sets of character data easily.
 
-- **Pagination**: The main table on the Home page supports pagination, enhancing usability by allowing users to navigate through different sets of character data easily.
-
-- **Search Functionality**: Users can quickly find characters by using the search field on the Home page. The search operates on an `onChange` event, instantly filtering the displayed rows based on the entered search string.
-
-### Note:
-
-- The initial version displays the first batch of data without considering pagination. However, pagination has been added as a bonus feature to improve the user experience.
-
-Feel free to explore the application and discover the intriguing world of Rick and Morty through the detailed character profiles!
+6. **Search Functionality**: Users can quickly find characters by using the search field on the Home page. The search operates on an `onChange` event, instantly filtering the displayed rows based on the entered search string.
 
 ## Getting Started
 
