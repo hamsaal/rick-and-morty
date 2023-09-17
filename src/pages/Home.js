@@ -11,11 +11,14 @@ import Error from "../components/Error";
 function Home() {
   const [pageNumbers, setPageNumbers] = useState([1, 2, 3, 4, 5, 6, 7]);
   const [currentPage, setCurrentPage] = useState(1);
+
+  // Functions to Update the Page Number Button Labels
   const UpdateNextButtons = () => {
     setPageNumbers((currentPageNumbers) =>
       currentPageNumbers.map((page) => page + 5)
     );
   };
+
   const UpdatePreviousButtons = () => {
     setPageNumbers((currentPageNumbers) =>
       currentPageNumbers.map((page) => page - 5)
@@ -43,8 +46,11 @@ function Home() {
           setInputSearch(event.target.value);
         }}
       ></SearchBar>
+
       {isPending && <Loading />}
+
       {error && <Error message={error} />}
+
       <div className="home-buttons-container">
         <PageButtons
           label={`PREV`}
