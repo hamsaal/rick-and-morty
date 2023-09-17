@@ -10,7 +10,7 @@ import Error from "../components/Error";
 
 function Home() {
   const [pageNumbers, setPageNumbers] = useState([1, 2, 3, 4, 5, 6, 7]);
-  const [currentPage, setCurrentPage] = useState("1");
+  const [currentPage, setCurrentPage] = useState(1);
   const UpdateNextButtons = () => {
     setPageNumbers((currentPageNumbers) =>
       currentPageNumbers.map((page) => page + 5)
@@ -47,7 +47,7 @@ function Home() {
       {error && <Error message={error} />}
       <div className="home-buttons-container">
         <PageButtons
-          label={`<<<<`}
+          label={`PREV`}
           disabled={pageNumbers[0] === 1}
           onClick={UpdatePreviousButtons}
         ></PageButtons>
@@ -61,7 +61,7 @@ function Home() {
         ))}
 
         <PageButtons
-          label={`>>>>`}
+          label={`NEXT`}
           disabled={pageNumbers[6] === 42}
           onClick={UpdateNextButtons}
         ></PageButtons>
