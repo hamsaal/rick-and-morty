@@ -26,16 +26,9 @@ header h1 {
   color: #FFF;
 }
 
-/*Main table styles*/
+/*HOME PAGE STYLES */
 
-.table-container {
-  margin: 20px auto;
-  max-width: 800px;
-  width: 70%;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 2px solid #000;
-}
+/* Pagination styles */
 .home-buttons-container{
   display: flex;
   justify-content: center;
@@ -50,7 +43,7 @@ header h1 {
   background-color: #E3B7A0;
 
 }
-.back-button:hover, .home-button:hover {
+.back-button:hover, .home-button:hover { /*Common  css shared with Back button on the profile page */
   background-color: #EDCDBB;
   cursor: pointer;
 }
@@ -59,6 +52,7 @@ header h1 {
 }
 
 
+/* Search Bar*/
 
 .searchbar-container {
   display: flex;
@@ -87,6 +81,17 @@ header h1 {
   font-weight: bold;
   font-family: 'Open Sans', sans-serif;
   font-size: large;
+}
+/*Main table styles*/
+
+
+.table-container {
+  margin: 20px auto;
+  max-width: 800px;
+  width: 70%;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid #000;
 }
 
 table {
@@ -128,7 +133,9 @@ td img, div img {
   border-radius: 50%;
 }
 
+/* PROFILE PAGE */
 
+/* Character details  */
 .character-details-box {
   padding: 20px;
   background-color: #E3B7A0;
@@ -166,6 +173,9 @@ td img, div img {
 .character-link {
   text-decoration: none;
 }
+
+/* / Back Button styles  */
+
 
 .button-container {
   display: flex;
