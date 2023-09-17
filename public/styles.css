@@ -154,8 +154,9 @@ td img {
   border-radius: 12px;
 }
 
-.back-button:hover {
+.back-button:hover, .home-button:hover {
   background-color: #EDCDBB;
+  cursor: pointer;
 }
 
 .back-button-icon {
@@ -166,4 +167,21 @@ td img {
 .back-button-text {
   margin-left: 8px;
   color: #000;
+}
+.home-buttons-container{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px;
+  margin: 25px auto;
+}
+.home-button{
+  border: 2px solid black;
+  padding: 12px;
+  border-radius: 12px;
+  background-color: #E3B7A0;
+
+}
+.home-button:disabled{
+  cursor: not-allowed;
 }
