@@ -1,8 +1,7 @@
 import { useParams } from "react-router-dom";
 import useFetch from "./useFetch";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
+import { ReactComponent as BackButton } from "../assets/arrow-left-solid.svg";
 
 const CharacterDetails = () => {
   const { id } = useParams();
@@ -13,9 +12,17 @@ const CharacterDetails = () => {
   } = useFetch(`https://rickandmortyapi.com/api/character/${id}`);
   return (
     <div>
-      <h2 className="character-details ">Character Details</h2>
-      {isPending && <div>Loading ...</div>}
-      {error && <div>{error}</div>}
+      <h2 className="character-details ">Character Profile</h2>
+      {isPending && (
+        <div style={{ color: "black", fontSize: "20px", textAlign: "center" }}>
+          Loading ...
+        </div>
+      )}
+      {error && (
+        <div style={{ color: "red", fontSize: "20px", textAlign: "center" }}>
+          {error}
+        </div>
+      )}
       {character && (
         <div className="character-details-box">
           <img
@@ -23,23 +30,28 @@ const CharacterDetails = () => {
             src={character.image}
             alt={character.name}
           />
-          <h2 className="character-details ">Name:{character.name}</h2>
-          <p className="character-details ">Specie:{character.species}</p>
-          <p className="character-details ">Status:{character.status}</p>
-          <p className="character-details ">Gender:{character.gender}</p>
-          <Link to="/">
-            <Button
-              style={{
-                backgroundColor: "yellow",
-                textColor: "white",
-                color: "black",
-              }}
-              variant="outlined"
-              startIcon={<ArrowBackIosIcon style={{ color: "black" }} />}
-            >
-              Back
-            </Button>
-          </Link>
+          <p className="character-details ">
+            <span className="details">Name: </span>
+            {character.name}
+          </p>
+          <p className="character-details ">
+            <span className="details">Specie: </span>
+            {character.species}
+          </p>
+          <p className="character-details ">
+            <span className="details">Status: </span>
+            {character.status}
+          </p>
+          <p className="character-details ">
+            <span className="details">Gender: </span>
+            {character.gender}
+          </p>
+          <div className="button-container">
+            <Link to="/" className="back-button">
+              <BackButton className="back-button-icon" />
+              <span className="back-button-text">Go Back</span>
+            </Link>
+          </div>
         </div>
       )}
     </div>
